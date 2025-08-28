@@ -60,7 +60,7 @@ const Work = () => {
 
   const handleSlideChange = (swiper) => {
     // get current slide index
-    const currentIndex = swiper.activeIndex;
+    const currentIndex = swiper.realIndex;
     // update project state based on current slide index
     setProject(projects[currentIndex]);
   };
@@ -139,6 +139,7 @@ const Work = () => {
               slidesPerView={1}
               className="xl:h=[520px] mb-12"
               onSlideChange={handleSlideChange}
+              loop={true}
             >
               {projects.map((project, index) => {
                 return (
@@ -162,7 +163,7 @@ const Work = () => {
               {/* slider buttons */}
               <WorkSliderBtns
                 containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] z-20 w-full justify-between"
-                btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"
+                btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all rounded-full"
               />
             </Swiper>
           </div>
